@@ -1,18 +1,19 @@
 import { executeScripts, getActiveTab } from '../core';
 
+// Zoom Levels are in % (multiply with 100)
 const ZOOM_LEVEL = [
-  0.25,
+  0.25, // 25%
   0.33,
   0.5,
   0.67,
   0.75,
   0.8,
   0.9,
-  1,
+  1, //100%
   1.1,
   1.25,
   1.5,
-  1.75,
+  1.75, // 175%
   2,
   2.5,
   3,
@@ -20,6 +21,10 @@ const ZOOM_LEVEL = [
   5
 ];
 
+
+// 
+//For the reference of the ACTIONS: go to src/js/langs/en.json
+//
 const commands = [
   {
     action: 'PAGE_ZOOM_IN',

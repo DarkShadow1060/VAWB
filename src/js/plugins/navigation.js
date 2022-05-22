@@ -1,5 +1,13 @@
 import { executeScripts } from '../core';
 
+
+
+//stack over flow 
+// XPATH -> XML PATH to navigate through HTML 
+// not working currently
+// kept for testing purpose
+
+
 const selectResultScript = `
 function getElementByXpath(path) {
   return document.evaluate(path, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
@@ -11,9 +19,8 @@ function selectResult(index) {
     + '|(//a[@id="thumbnail"][not(ancestor::*[@hidden])]))'
     + '[' + (index + 1) + ']');
   if (anchor && anchor.href) {
-    if (anchor.href.startsWith('https://www.amazon.com/')) {
+    if (anchor.href.startsWith('https://www.google.com/')) {
       const url = new URL(anchor.href);
-      url.searchParams.set('tag', 'bewisse-20');
       window.location.href = url.href;
     } else {
       window.location.href = anchor.href;
@@ -21,6 +28,10 @@ function selectResult(index) {
   }  
 }
 `;
+
+
+//For the reference of the ACTIONS: go to src/js/langs/en.json
+
 
 const commands = [
   {
@@ -45,6 +56,9 @@ const commands = [
   },
 ];
 
+// Currently not working  
+// since each search result gives 10 links 
+// hence the loop is from 0 to 9
 for (let i = 0; i < 10; i++) {
   commands.push({
     action: `NAVIGATION_SELECT_${i + 1}`,

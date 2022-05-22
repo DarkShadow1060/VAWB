@@ -1,3 +1,10 @@
+/* 
+
+  This tb contains the Querys, what result happens if the user performs a Query 
+
+
+*/
+
 import cheerio from "cheerio";
 import axios from "axios";
 import { activeListening } from '../store';

@@ -3,11 +3,12 @@
     used for controlling media 
     Play pause 
 
+    For the reference of the ACTIONS: go to src/js/langs/en.json
+
 */
 
 
 import { executeScripts } from '../core';
-
 function forAllVideos(perVideoCommand) {
   return (
     `const videos = document.getElementsByTagName('video');
@@ -26,8 +27,11 @@ function forAllAudios(perAudioCommand) {
   );
 }
 
+
+//   For the reference of the ACTIONS: go to src/js/langs/en.json
+
 const commands = [
-  {
+  { 
     action: 'MEDIA_PAUSE',
     callback: () => {
       executeScripts(
@@ -36,7 +40,7 @@ const commands = [
     }
   },
 
-  {
+  { 
     action: 'MEDIA_PLAY',
     callback: () => {
       executeScripts(
@@ -45,7 +49,7 @@ const commands = [
     }
   },
 
-  {
+  { 
     action: 'MEDIA_VOLUME_UP',
     callback: () => {
       executeScripts(

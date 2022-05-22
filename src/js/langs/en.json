@@ -14,6 +14,7 @@
   "EXTENSION_CANCEL": ["*query no", "*query cancel", "*query stop"],
   "EXTENSION_SUBMIT": ["submit", "enter"],
   "EXTENSION_WRITE": ["write *query"],
+  "INCOGNITO_WINDOW":["Incognito","open Incognito","Incognito tab"],
   "MEDIA_PAUSE": ["pause", "stop"],
   "MEDIA_PLAY": ["play", "resume"],
   "MEDIA_VOLUME_UP": ["increase volume", "volume up"],

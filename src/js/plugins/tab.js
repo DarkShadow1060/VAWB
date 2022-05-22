@@ -11,6 +11,13 @@ const commands = [
     }
   },
   {
+    action: 'INCOGNITO_WINDOW',
+    callback: () => {
+      chrome.windows.create({incognito: true});
+    }
+  }
+  ,
+  {
     action: 'TABS_CLOSE_TAB',
     callback: () => {
       performActionWithDelay(() => {

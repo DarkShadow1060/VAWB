@@ -1,8 +1,5 @@
 /* 
-
   This tb contains the Querys, what result happens if the user performs a Query 
-
-
 */
 
 import cheerio from "cheerio";
@@ -15,6 +12,7 @@ async function loadAndParsePage(url) {
   return cheerio.load(response.data);
 }
 
+//
 async function generateGoogleLuckyUrl(query) {
   const parsedResponse = await loadAndParsePage("https://www.google.com/");
   const sxsrf = parsedResponse("input[name='sxsrf']").attr("value");
@@ -30,12 +28,12 @@ async function generateGoogleLuckyUrl(query) {
   url.searchParams.set("q", query);
   return url.href;
 }
-
+// Mapping Known Sites To their URL for Quick Fuctionality 
 const siteToUrl = {
   Bing: "https://www.bing.com/search?q=",
   AOL: "https://search.aol.com/aol/search?q=",
   Yahoo: "https://search.yahoo.com/search?p=",
-  Amazon: "https://www.amazon.com/s?tag=bewisse-20&k=",
+  Amazon: "https://www.amazon.com/",
   Walmart: "https://www.walmart.com/search/?query=",
   Target: "https://www.target.com/s?searchTerm=",
   YouTube: "https://www.youtube.com/results?search_query=",
@@ -43,6 +41,8 @@ const siteToUrl = {
   Wikipedia: "https://www.wikipedia.org/wiki/"
 };
 
+
+// To Understand Actions see Scr/js/langs/en.json
 const searchCommands = [];
 for (const key in siteToUrl) {
   searchCommands.push({
@@ -145,14 +145,14 @@ const commands = [
   {
     action: 'QUERY_GO_TO_SHOPPING',
     callback: () => {
-      openTabWithUrl("https://www.amazon.com/?tag=bewisse-20");
+      openTabWithUrl("https://www.amazon.com/?");
     }
   },
   {
     action: 'QUERY_SEARCH_SHOPPING',
     callback: query => {
       openTabWithUrl(
-        "https://www.amazon.com/s?tag=bewisse-20&k=" + query
+        "https://www.amazon.com/s?" + query
       );
     }
   },

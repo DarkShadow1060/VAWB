@@ -1,15 +1,10 @@
 import { activeListening } from './store';
 
+// this page sets the icon of extesion 
 export function initBrowserAction() {
   activeListening.subscribe(enabled => {
-    if (enabled) {
       chrome.browserAction.setIcon({
-        path: "/img/icon_128.png"
+        path: "../img/icon_16.png"
       });
-    } else {
-      chrome.browserAction.setIcon({
-        path: "/img/icon_128_bw.png"
-      });
-    }
-  });
-}
+    }); 
+  }

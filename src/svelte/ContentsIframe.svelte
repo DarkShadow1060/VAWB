@@ -20,13 +20,15 @@
 
 <style>
   .chrome-voice-assistant {
-    border: none;
+    background-color: #373738;
+    border-radius: 6px;
     position: fixed;
-    width: 330px;
-    height: 270px;
-    bottom: 10px;
-    right: 10px;
+    width: 30%;
+    height: 30%;
+    bottom: 0.2%;
+    right: 0.1%;
     z-index: 1000000;
+    margin: 0%;
   }
 
   .chrome-voice-assistant-hidden {
@@ -35,7 +37,7 @@
 </style>
 
 <iframe
-  class="chrome-voice-assistant {showIframe ? '' : 'chrome-voice-assistant-hidden'}"
+  class="chrome-voice-assistant {showIframe ? '' : 'chrome-voice-assistant-hidden'} text-center text-white"
   seamless
   src={url}
   title="VAWB - Chrome Voice Assistant" />

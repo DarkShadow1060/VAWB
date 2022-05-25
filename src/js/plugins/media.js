@@ -9,15 +9,19 @@
 
 
 import { executeScripts } from '../core';
+
+// HELPER FUNCTION TO CTRL VIDEO
+
+// SINCE A PAGE CAN CONTAIN MANY VIDEOS / AUDIOS WE ARE TAKING LISTS OF VIDEOS /AUDIOS
 function forAllVideos(perVideoCommand) {
   return (
     `const videos = document.getElementsByTagName('video');
     for (let video of videos) {
       ${perVideoCommand}
     }`
-  );
-}
-
+    );
+  }
+// HELPER FUNCTION TO CTRL AUDIO
 function forAllAudios(perAudioCommand) {
   return (
     `const audios = document.getElementsByTagName('audio');
@@ -35,6 +39,8 @@ const commands = [
     action: 'MEDIA_PAUSE',
     callback: () => {
       executeScripts(
+        // WILL PAUSE ALL THE VIDEOS/AUDIOS PLAYING IN CURRENT PAGE
+        //NOTE THIS WILL ONLY WORK ON ACTIVE VIDEO 
         forAllVideos("video.pause();") + forAllAudios("audio.pause();")
       );
     }
@@ -53,6 +59,8 @@ const commands = [
     action: 'MEDIA_VOLUME_UP',
     callback: () => {
       executeScripts(
+        // WHEN THE MAX VALUE OF VOLUME IS REACHED THE MINIMUM WIL BE 1
+        // ELSE THE MIN VALUE WILL BE video.volume + .2;
         forAllVideos("video.volume = Math.min(1, video.volume + .2);") +
         forAllAudios("audio.volume = Math.min(1, audio.volume + .2);")
       );
@@ -63,6 +71,7 @@ const commands = [
     action: 'MEDIA_VOLUME_DOWN',
     callback: () => {
       executeScripts(
+        // SAME LOGIC AS VOLUME UP (JUST OPPOSITE) VOLUME CAN'T BE -VE 
         forAllVideos("video.volume = Math.max(0, video.volume - .2);") +
         forAllAudios("audio.volume = Math.max(0, audio.volume - .2);")
       );
@@ -70,16 +79,18 @@ const commands = [
   },
 
   {
+    // THIS PART INCREASES THE VOLUME VALUE BY 80% DIRECTLY 
     action: 'MEDIA_VOLUME_LOUD',
     callback: () => {
       executeScripts(
-        forAllVideos("video.volume = .8;") +
-        forAllAudios("audio.volume = .8;")
+        forAllVideos("video.volume = Math.max(1,video.volume+0.8);") +
+        forAllAudios("audio.volume = Math.max(1,audio.volume+0.8);")
       );
     }
   },
 
   {
+    // THIS SETS THE VOLUME TO 100%
     action: 'MEDIA_VOLUME_VERY_LOUD',
     callback: () => {
       executeScripts(
@@ -98,6 +109,25 @@ const commands = [
       );
     }
   },
+  // THE MUTING AND UNMUTING IS HANDELED BY ANOTHER FILE ie., tab_muter.js
+  // {
+  //   action: 'MEDIA_VOLUME_MUTE',
+  //   callback: () => {
+  //     executeScripts(
+  //       forAllVideos("video.volume = 0;") +
+  //       forAllAudios("audio.volume = 0;")
+  //     );
+  //   }
+  // },
+  // {
+  //   action: 'MEDIA_VOLUME_UNMUTE',
+  //   callback: () => {
+  //     executeScripts(
+  //       forAllVideos("video.volume = .5;") +
+  //       forAllAudios("audio.volume = .5;")
+  //     );
+  //   }
+  // },
 
   {
     action: 'MEDIA_FORWARD_SECONDS',

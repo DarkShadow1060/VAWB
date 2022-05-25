@@ -1,5 +1,5 @@
 /* 
-  This tb contains the Querys, what result happens if the user performs a Query 
+  This tab contains the Querys, what result happens if the user performs a Query 
 */
 
 import cheerio from "cheerio";
@@ -7,37 +7,51 @@ import axios from "axios";
 import { activeListening } from '../store';
 import { openTabWithUrl, performActionWithDelay } from '../core';
 
+// 3RD PARTY LIBRARY (HTTP client based request) 
 async function loadAndParsePage(url) {
   const response = await axios.get(url);
   return cheerio.load(response.data);
 }
 
-//
+// REFERENCE OF GOOGLE SEARCH URL 
+
+/*
+  https://www.google.com/search?
+  q=youtube
+  &
+  sxsrf=ALiCzsah8XJ8nnRuFB2mt2weCIINJCzlOA%3A1653372421304
+  &
+  ei=BXaMYoisEv-VseMP9r69kAM&ved=0ahUKEwjIwumevPf3AhX_SmwGHXZfDzIQ4dUDCA4&uact=5
+  &
+  oq=youtube
+  &
+  gs_lcp=Cgdnd3Mtd2l6EAMyBAgjECcyBAgjECcyBAgjECcyEAguELEDEIMBEMcBENEDEEMyBAgA
+  &
+  sclient=gws-wiz
+*/
+
+// HELPER FUNCTION TO DIRECTLY OPEN A SITE 
 async function generateGoogleLuckyUrl(query) {
+  //Stack overflow 
   const parsedResponse = await loadAndParsePage("https://www.google.com/");
-  const sxsrf = parsedResponse("input[name='sxsrf']").attr("value");
-  const ei = parsedResponse("input[name='ei']").attr("value");
   const iflsig = parsedResponse("input[name='iflsig']").attr("value");
-  const source = parsedResponse("input[name='source']").attr("value");
   const url = new URL("https://www.google.com/search");
-  url.searchParams.set("sxsrf", sxsrf);
-  url.searchParams.set("ei", ei);
-  url.searchParams.set("iflsig", iflsig);
-  url.searchParams.set("source", source);
-  url.searchParams.set("btnI", "I'm Feeling Lucky");
   url.searchParams.set("q", query);
+  // iflsig PREVENTS FROM REDIRECT NOTICE TO DIFFFERENT URL  
+  url.searchParams.set("iflsig",iflsig);
+  //ADDING btnI DIRECTLY OPENS THE FIRST LINK
+  url.searchParams.set("btnI", "I'm Feeling Lucky");
+  url.searchParams.set("autoplay",1);
   return url.href;
 }
+
+
 // Mapping Known Sites To their URL for Quick Fuctionality 
 const siteToUrl = {
   Bing: "https://www.bing.com/search?q=",
-  AOL: "https://search.aol.com/aol/search?q=",
   Yahoo: "https://search.yahoo.com/search?p=",
   Amazon: "https://www.amazon.com/",
-  Walmart: "https://www.walmart.com/search/?query=",
-  Target: "https://www.target.com/s?searchTerm=",
   YouTube: "https://www.youtube.com/results?search_query=",
-  Baidu: "http://www.baidu.com/s?wd=",
   Wikipedia: "https://www.wikipedia.org/wiki/"
 };
 
@@ -145,14 +159,14 @@ const commands = [
   {
     action: 'QUERY_GO_TO_SHOPPING',
     callback: () => {
-      openTabWithUrl("https://www.amazon.com/?");
+      openTabWithUrl("https://www.amazon.in/?");
     }
   },
   {
     action: 'QUERY_SEARCH_SHOPPING',
     callback: query => {
       openTabWithUrl(
-        "https://www.amazon.com/s?" + query
+        "https://www.amazon.in/s?k=" + query
       );
     }
   },
@@ -217,3 +231,4 @@ const commands = [
 ];
 
 export default commands;
+

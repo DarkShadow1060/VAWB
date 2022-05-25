@@ -1,6 +1,8 @@
 import { sendPermissionRequest } from "../notification";
 import { getActiveTab } from '../core';
 
+
+// for the reference to ACTIONS: of the COMMAND look "src/js/langs/en.json"
 const commands = [
   {
     action: 'BOOKMARK_ADD',

@@ -11,10 +11,12 @@ const addedCommands = new Set();
 /** ------- Initialization ------- */
 export function initCommander(allPlugins) {
   initRegularCommands(allPlugins);
-
+// chrome api
   chrome.runtime.onMessage.addListener(async (request) => {
-    if (DEBUG) {
+    if (DEBUG) { 
+      // debugger is used to check received message  
       console.log(`Received message: ${JSON.stringify(request)}`);
+      // alert(`Received message: ${JSON.stringify(request)}`);
     }
     switch (request.type) {
       case "TRIGGER":
@@ -80,6 +82,7 @@ async function trigger() {
   }
 }
 
+// helper function to add commands(callback functions)
 function addCommands(
   commandList,
   commandFunction,
@@ -101,6 +104,7 @@ function addCommands(
 }
 
 /** ------- Handle regular commands ------- */
+
 function initRegularCommands(allPlugins) {
   const actionToCommand = {};
   for (const command of allPlugins) {

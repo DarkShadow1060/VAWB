@@ -11,21 +11,22 @@
   ],
   "EXTENSION_CLOSE": ["bye", "bye bye", "goodbye", "good bye", "close"],
   "EXTENSION_HELP": ["see supported commands", "what can you do"],
-  "EXTENSION_CANCEL": ["*query no", "*query cancel", "*query stop"],
+  "EXTENSION_CANCEL": ["*query no", "*query cancel", "*query stop","cancel"],
   "EXTENSION_SUBMIT": ["submit", "enter"],
   "EXTENSION_WRITE": ["write *query"],
-  "INCOGNITO_WINDOW":["Incognito","open Incognito","Incognito tab"],
   "MEDIA_PAUSE": ["pause", "stop"],
   "MEDIA_PLAY": ["play", "resume"],
   "MEDIA_VOLUME_UP": ["increase volume", "volume up"],
   "MEDIA_VOLUME_DOWN": ["decrease volume", "volume down"],
   "MEDIA_VOLUME_LOUD": ["(make it) loud"],
-  "MEDIA_VOLUME_VERY_LOUD": ["(make it) very loud"],
-  "MEDIA_VOLUME_QUIET": ["(make it) quiet"],
+  "MEDIA_VOLUME_VERY_LOUD": ["(make it) very loud","full volume"],
+  "MEDIA_VOLUME_QUIET": ["(make it) quiet","low volume"],
   "MEDIA_FORWARD_SECONDS": [
     "skip *query seconds",
     "(go) forward *query seconds"
   ],
+  "INCOGNITO_WINDOW":["Incognito","Incognito Window" , "Open Incognito"]
+  ,
   "MEDIA_BACKWARD_SECONDS": ["(go) back *query seconds"],
   "MEDIA_FORWARD_MINUTES": [
     "skip *query minutes",
@@ -58,158 +59,6 @@
     "refresh tab",
     "refresh this tab",
     "refresh the tab"
-  ],
-  "NAVIGATION_SELECT_1": [
-    "best",
-    "best result",
-    "best results",
-    "best link",
-    "best answer",
-    "best response",
-    "first",
-    "first result",
-    "first results",
-    "first link",
-    "first answer",
-    "first response",
-    "top",
-    "top result",
-    "top results",
-    "top link",
-    "top answer",
-    "top response",
-    "1st",
-    "1st result",
-    "1st results",
-    "1st link",
-    "1st answer",
-    "1st response"
-  ],
-  "NAVIGATION_SELECT_2": [
-    "second",
-    "second result",
-    "second results",
-    "second link",
-    "second answer",
-    "second response",
-    "2nd",
-    "2nd result",
-    "2nd results",
-    "2nd link",
-    "2nd answer",
-    "2nd response"
-  ],
-  "NAVIGATION_SELECT_3": [
-    "third",
-    "third result",
-    "third results",
-    "third link",
-    "third answer",
-    "third response",
-    "3rd",
-    "3rd result",
-    "3rd results",
-    "3rd link",
-    "3rd answer",
-    "3rd response"
-  ],
-  "NAVIGATION_SELECT_4": [
-    "fourth",
-    "fourth result",
-    "fourth results",
-    "fourth link",
-    "fourth answer",
-    "fourth response",
-    "4th",
-    "4th result",
-    "4th results",
-    "4th link",
-    "4th answer",
-    "4th response"
-  ],
-  "NAVIGATION_SELECT_5": [
-    "fifth",
-    "fifth result",
-    "fifth results",
-    "fifth link",
-    "fifth answer",
-    "fifth response",
-    "5th",
-    "5th result",
-    "5th results",
-    "5th link",
-    "5th answer",
-    "5th response"
-  ],
-  "NAVIGATION_SELECT_6": [
-    "sixth",
-    "sixth result",
-    "sixth results",
-    "sixth link",
-    "sixth answer",
-    "sixth response",
-    "6th",
-    "6th result",
-    "6th results",
-    "6th link",
-    "6th answer",
-    "6th response"
-  ],
-  "NAVIGATION_SELECT_7": [
-    "seventh",
-    "seventh result",
-    "seventh results",
-    "seventh link",
-    "seventh answer",
-    "seventh response",
-    "7th",
-    "7th result",
-    "7th results",
-    "7th link",
-    "7th answer",
-    "7th response"
-  ],
-  "NAVIGATION_SELECT_8": [
-    "eighth",
-    "eighth result",
-    "eighth results",
-    "eighth link",
-    "eighth answer",
-    "eighth response",
-    "8th",
-    "8th result",
-    "8th results",
-    "8th link",
-    "8th answer",
-    "8th response"
-  ],
-  "NAVIGATION_SELECT_9": [
-    "ninth",
-    "ninth result",
-    "ninth results",
-    "ninth link",
-    "ninth answer",
-    "ninth response",
-    "9th",
-    "9th result",
-    "9th results",
-    "9th link",
-    "9th answer",
-    "9th response"
-  ],
-  "NAVIGATION_SELECT_10": [
-    "tenth",
-    "tenth result",
-    "tenth results",
-    "tenth link",
-    "tenth answer",
-    "tenth response",
-    "10th",
-    "10th result",
-    "10th results",
-    "10th link",
-    "10th answer",
-    "10th response"
   ],
   "PAGE_ZOOM_IN": [
     "zoom in",
@@ -395,18 +244,12 @@
     "open bookmarks"
   ],
   "QUERY_GO_TO_HISTORY": ["go to history", "open history"],
-  "QUERY_GO_TO_QUERY": ["go to *query", "open *query", "take me to *query"],
+  "QUERY_GO_TO_QUERY": ["go to *query", "open *query", "take me to *query" , "play *query", "play *query video", "play *query song" ],
   "QUERY_SEARCH_QUERY_ON_BING": [
     "search for *query on Bing",
     "search for *query at Bing",
     "*query on Bing",
     "*query at Bing"
-  ],
-  "QUERY_SEARCH_QUERY_ON_AOL": [
-    "search for *query on AOL",
-    "search for *query at AOL",
-    "*query on AOL",
-    "*query at AOL"
   ],
   "QUERY_SEARCH_QUERY_ON_YAHOO": [
     "search for *query on Yahoo",
@@ -420,29 +263,11 @@
     "*query on Amazon",
     "*query at Amazon"
   ],
-  "QUERY_SEARCH_QUERY_ON_WALMART": [
-    "search for *query on Walmart",
-    "search for *query at Walmart",
-    "*query on Walmart",
-    "*query at Walmart"
-  ],
-  "QUERY_SEARCH_QUERY_ON_TARGET": [
-    "search for *query on Target",
-    "search for *query at Target",
-    "*query on Target",
-    "*query at Target"
-  ],
   "QUERY_SEARCH_QUERY_ON_YOUTUBE": [
     "search for *query on YouTube",
     "search for *query at YouTube",
     "*query on YouTube",
     "*query at YouTube"
-  ],
-  "QUERY_SEARCH_QUERY_ON_BAIDU": [
-    "search for *query on Baidu",
-    "search for *query at Baidu",
-    "*query on Baidu",
-    "*query at Baidu"
   ],
   "QUERY_SEARCH_QUERY_ON_WIKIPEDIA": [
     "search for *query on Wikipedia",
@@ -492,8 +317,8 @@
     "unmute other (the) tab",
     "unmute other (the) tabs"
   ],
-  "TABS_MAXIMIZE_WINDOW": ["maximize", "maximize window"],
-  "TABS_MINIMIZE_WINDOW": ["minimize", "minimize window"],
+  "TABS_MAXIMIZE_WINDOW": ["maximize", "maximize window","maximise window" , "maximize tab ", "maximise" , "maximise tab"],
+  "TABS_MINIMIZE_WINDOW": ["minimize", "minimize window" , "minimise" , "minimise window " ,"minimise tab "],
   "TABS_SIDE_BY_SIDE": ["side by side"],
   "TABS_ENTER_FULLSCREEN": [
     "fullscreen",

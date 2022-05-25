@@ -1,0 +1,47 @@
+BookMark Permission is there in PLUGINS-> BOOKMARK.js
+
+
+Extension.js contains the commands of extension such as write command (writes the imput area) , can submit the form,help 
+
+Index.js has all the plugins ie., media , tab ,navigation tab , pages etc for quick Access.
+
+MEDIA.js controls the media , for the reference to ACTIONS of the COMMAND look "src/js/langs/en.json"
+
+Navigation.js => controls the page/ tab navigation (backwards / forwards specific result search is under development)
+
+page.js => this contains all the page commands(scroll , zoom etc )
+
+query.js => searh queries from google or bing or yahoo/ default search engine
+
+tab.js => this file contains all the tab command(close tab , side by side, maximize )
+
+Background.js/ service worker => runs the script in background , initializes the commander script 
+  for listening , browsrActions are enabled, as soon as the extension is installed   etc .  
+
+Browseraction.js => sets the icon of VAWB in runtime.
+
+Commander.js => this FIle uses all the above plugins and triggers the command like openURL , load tabs , 
+  clear notifications and handel regular commands.
+
+Content_Iframe.js => is the main Node application which enables the notification UI (VAWB )panel.
+
+Core.js => is the file where main Core functions are defined such as Execuite script function, 
+   taking a JS script as parameter and execuiting is the chrome window, open new tab with URL, 
+   delayed action to perevent collision of command etc.
+
+Notification_UI.js => is the node app which is responsible to show the VAWB notification in the Content_Iframe, without Iframe
+   the notification cannot be shown hence it is dependable upon Content_Iframe, this panel hears the commnd and execuits 
+   the desired .
+
+Notification.js is the Script which performs the listening part of the Vawb in HTML page(dont get confused with backend listening part, that is handeled by commander.js and annyang.js).
+
+Option.js is the script file for the Option.HTML page which basically calls option.svelte(js framework)
+
+similarlly popup.js is the file which opens notification_ui when clicked.
+
+Store.js  => This file basically uses chrome storage API and stores the value in local storage
+ 		* HOT WORD is  also stored here 
+		 * Hot Word => hey , hey BOB , BOB
+Tab_muter => functional script which mutes the tab if a loud media is played while listening the command.
+
+Svelte Files are the Js framework file.

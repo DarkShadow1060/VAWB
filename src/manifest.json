@@ -5,7 +5,7 @@
   "manifest_version": 2,
   "description": "Speech recognition and voice control for Chrome",
   "browser_action": {
-    "default_icon": "img/icon_128_bw.png",
+    "default_icon": "img/icon_128.png",
     "default_title": "VAWB - Chrome Voice Assistant",
     "default_popup": "popup.html"
   },

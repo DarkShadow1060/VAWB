@@ -1,6 +1,9 @@
 import { storage } from "./common";
 import { hotwordEnabled } from "./store";
 
+// Context Menue is the Menue popup which opens
+// when right clicked on extension
+
 export function initContextMenus() {
   chrome.contextMenus.removeAll();
   chrome.contextMenus.create({

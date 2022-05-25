@@ -1,9 +1,20 @@
+/*
+ * This file basically uses chrome storage API and stores the value in local storage
+ * HOT WORD is  also stored here 
+ * Hot Word => hey , hey BOB , BOB
+ * 
+ * Custom Hot Word will be added in next Update
+ * 
+ */
+
+
 import { derived, get, writable } from 'svelte/store';
 import { storage } from './common';
 
 export const activeListening = writable(false);
 export const hotwordEnabled = writable(false);
-export const customHotword = writable(undefined);
+
+
 export const speechRecognitionEnabled = derived(
   [activeListening, hotwordEnabled],
 	([$activeListening, $hotwordEnabled]) => {
@@ -21,26 +32,12 @@ export function isHotwordEnabled() {
 }
 
 export function getHotwords() {
-  const customHotwordVal = get(customHotword);
-  const hotwords = ['hey'];
-  if (customHotwordVal) {
-    hotwords.push(customHotwordVal);
-  }
+  const hotwords = ['hey','HEY BOB',"Hi BOB",'bob', "hello bob"];
+
   return hotwords;
 }
 
 storage.get(["hotword"], result => {
   hotwordEnabled.set(result.hotword);
 });
-storage.get(["customHotword"], result => {
-  customHotword.set(result.customHotword);
-});
 
-chrome.storage.onChanged.addListener((changes) => {
-  if (changes.hotword) {
-    hotwordEnabled.set(changes.hotword.newValue);
-  }
-  if (changes.customHotword) {
-    customHotword.set(changes.customHotword.newValue);
-  }
-});
